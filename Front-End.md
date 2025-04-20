@@ -1,18 +1,14 @@
 Frontend'i yayınladığınız domain adresi: http://frontend.com
 
-# Ali Atabin Frontend #
-1. Kayıt Ol
-2. Giriş Yap
-3. 2FA
-4. .....
-5. .....
-6. ....
+# Süleyman Buğra Çetin Frontend #
 
-
-# Ayşe Toputut Frontend #
-1. ....
-2. ....
-3. ....
-4. ....
-5. ....
-6. ....
+    Kullanıcı Kaydı: 
+    Kullanıcı Girişi: 
+    Ürün Listeleme: 
+    Ürün Arama ve Filtreleme: 
+    Ürün Detay Görüntüleme: 
+    Sepete Ürün Ekleme: 
+    Sepetten Ürün Silme: 
+    Sepet Görüntüleme: 
+    Sipariş Oluşturma: 
+    Sipariş Durumu Takibi: 
