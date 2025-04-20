@@ -1,4 +1,4 @@
-Frontend'i yayınladığınız domain adresi: http://frontend.com
+Frontend'i yayınladığınız domain adresi: https://pdpth.github.io/IronHand-Website/
 
 # Süleyman Buğra Çetin Frontend #
 
