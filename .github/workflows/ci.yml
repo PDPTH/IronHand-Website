@@ -53,7 +53,7 @@ jobs:
 
       - name: Run Docker Compose services
         run: |
-          docker-compose up --build -d
+          docker compose up --build -d
 
       - name: Smoke-test API
         run: |
