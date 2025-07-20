@@ -11,6 +11,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: back-end
     services:
       postgres:
         image: postgres:16
@@ -25,6 +28,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -44,10 +48,12 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag ironhand-backend:ci
+        run: |
+          docker build . --file Dockerfile --tag ironhand-backend:ci
 
       - name: Run Docker Compose services
-        run: docker-compose up --build -d
+        run: |
+          docker-compose up --build -d
 
       - name: Smoke-test API
         run: |
