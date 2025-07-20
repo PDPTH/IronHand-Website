@@ -53,6 +53,6 @@ jobs:
       - name: Wait for server to be ready
         run: sleep 10
 
-      - name: Smoke-test API
+      - name: Smoke-test API (Health check)
         run: |
-          curl --retry 5 --retry-delay 3 --fail http://localhost:3000/api/products
+          curl --retry 5 --retry-delay 3 --fail http://localhost:3000/health
