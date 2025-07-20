@@ -47,15 +47,12 @@ jobs:
       - name: Build backend
         run: npm run build
 
-      - name: Build Docker image
-        run: |
-          docker build . --file Dockerfile --tag ironhand-backend:ci
+      - name: Start server
+        run: npm start &
 
-      - name: Run Docker Compose services
-        run: |
-          docker compose up --build -d
+      - name: Wait for server to be ready
+        run: sleep 10
 
       - name: Smoke-test API
         run: |
-          sleep 10
-          curl --fail http://localhost:3000/api/products
+          curl --retry 5 --retry-delay 3 --fail http://localhost:3000/api/products
