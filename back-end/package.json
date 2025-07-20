@@ -2,7 +2,7 @@
   "name": "back-end",
   "version": "1.0.0",
   "main": "index.js",
-  // back-end/package.json
+// back-end/package.json
 {
   "scripts": {
 -   "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,8 @@
     "build": "node app.js",
     …
   }
+}
+
   },
   "keywords": [],
   "author": "",
