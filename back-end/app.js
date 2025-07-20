@@ -4,6 +4,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+// Health check
+app.get('/health', (req, res) => res.status(200).send('OK'));
+
 
 // Route'ları ekle
 app.use('/api/auth', require('./routes/auth'));
