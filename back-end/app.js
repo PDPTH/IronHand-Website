@@ -1,18 +1,33 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/userRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+
 const app = express();
 
+mongoose.connect('mongodb://localhost:27017/ironhand', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
+
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// 1) Health check endpoint – bu satırı ekleyin:
-app.get('/health', (req, res) => res.status(200).send('OK'));
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
-// 2) Mevcut API route’larınız:
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/products', require('./routes/products'));
-app.use('/api/cart', require('./routes/cart'));
-app.use('/api/orders', require('./routes/orders'));
+// Eklenen root endpoint
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`API http://localhost:${PORT} üzerinde çalışıyor.`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
